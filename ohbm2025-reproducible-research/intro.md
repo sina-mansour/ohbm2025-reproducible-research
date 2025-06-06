@@ -1,8 +1,8 @@
 # 📚 Reproducible Pipelines for <br>🧠 Neuroimaging Research
 <span style="font-size:1.2em; font-weight:300; color:gray;">From Code to Visualization</span>
 
-**Presenter**:  
-*Sina Mansour L.*, Ph.D.  
+**Author/Presenter**:  
+[*Sina Mansour L.*](https://sina-mansour.github.io/), Ph.D.  
 National University of Singapore & The University of Melbourne
 
 ```{note}
