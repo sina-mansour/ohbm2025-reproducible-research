@@ -1,0 +1,66 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+
+  - file: chapters/01/reproducibility-in-neuroimaging
+    title: 📗 Why Reproducibility Matters
+
+  - file: chapters/02/reproducible-analysis-pipelines
+    title: 📘 Building Reproducible Analysis Pipelines
+    sections:
+      - file: chapters/02/02a_coding-best-practices
+        title: 1️⃣ Coding Best Practices
+      - file: chapters/02/02b_jupyter-notebooks
+        title: 2️⃣ Using Notebooks Effectively
+
+  - file: chapters/03/reproducible-visualizations
+    title: 📙 Reproducible Scientific Visualizations
+    sections:
+      - file: chapters/03/03a_programmatic-visualizations
+        title: 1️⃣ Programmatic Visualizations
+      - file: chapters/03/03b_visualization-tools
+        title: 2️⃣ Visualization Tools Overview
+
+  - file: chapters/04/references
+    title: 📑 References
+
+  # - file: markdown
+  # - file: notebooks
+  # - file: markdown-notebooks
+
+  #   sections:
+  #     - file: 02/02a_coding-best-practices
+  #       title: Coding Best Practices
+  #     - file: 02/02b_jupyter-notebooks
+  #       title: Using Notebooks Effectively
+  #     - file: 02/02c_a-practical-example
+  #       title: Practical Example
+
+  # - file: 03/reproducible-visualizations
+  #   title: Reproducible Scientific Visualizations
+  #   sections:
+  #     - file: 03/03a_static-to-scriptable
+  #       title: Static to Scriptable Visuals
+  #     - file: 03/03b_visualization-tools
+  #       title: Visualization Tools Overview
+  #     - file: 03/03c_examples
+  #       title: Visualization Examples
+
+  # - file: 04/integrating-everything
+  #   title: Putting It All Together
+  #   sections:
+  #     - file: 04/04a_publishing-workflows
+  #       title: Publishing Reproducible Workflows
+  #     - file: 04/04b_templates-recommendations
+  #       title: Templates & Recommendations
+  #     - file: 04/04c_takeaways
+  #       title: Final Takeaways
+
+  # - file: resources
+  #   title: Additional Resources
+
+  # - file: acknowledgements
+  # - file: references

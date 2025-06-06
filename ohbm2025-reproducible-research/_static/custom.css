@@ -1,0 +1,18 @@
+/* Change the color of example admonitions */
+div.admonition.admonition-example {
+    border-left: 4px solid rgb(255, 187, 15) !important;
+}
+html[data-theme="dark"] div.admonition.admonition-example > .admonition-title {
+    background-color: rgb(157, 115, 0) !important;
+    color: rgb(233, 233, 233) !important;
+}
+html[data-theme="light"] div.admonition.admonition-example > .admonition-title {
+    background-color: rgb(252, 236, 191) !important;
+    color: rgb(49, 49, 49) !important;
+}
+div.admonition.admonition-example > p.admonition-title::after {
+  color: rgb(255, 187, 15) !important;
+  content: "\f5ad"; /* Example: FontAwesome 'info-circle' */
+  font-family: "Font Awesome 6 Free";  /* or whatever FA version is used */
+  font-weight: 900; /* Solid weight */
+}

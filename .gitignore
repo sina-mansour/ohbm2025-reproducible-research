@@ -1,0 +1,16 @@
+# the virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# local static file edits
+static_content/
+
+# vscode settings
+.vscode/

@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙1️⃣ Programmatic Visualizations &#8212; OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=f5cea23c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03/03a_programmatic-visualizations';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="📙2️⃣ Visualization Tools Overview" href="03b_visualization-tools.html" />
+    <link rel="prev" title="📙 Reproducible Scientific Visualizations" href="reproducible-visualizations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    📚 Reproducible Pipelines for <br>🧠 Neuroimaging Research
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/reproducibility-in-neuroimaging.html">📗 Why Reproducibility Matters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02/reproducible-analysis-pipelines.html">📘 Building Reproducible Analysis Pipelines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02/02a_coding-best-practices.html">1️⃣ Coding Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02/02b_jupyter-notebooks.html">2️⃣ Using Notebooks Effectively</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="reproducible-visualizations.html">📙 Reproducible Scientific Visualizations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1️⃣ Programmatic Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03b_visualization-tools.html">2️⃣ Visualization Tools Overview</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/references.html">📑 References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sina-mansour/ohbm2025-reproducible-research" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sina-mansour/ohbm2025-reproducible-research/issues/new?title=Issue%20on%20page%20%2Fchapters/03/03a_programmatic-visualizations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/03/03a_programmatic-visualizations.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📙1️⃣ Programmatic Visualizations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgment">🙏 Acknowledgment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-visualizations-matter">👀 Why Visualizations Matter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-visualization">The Impact of Visualization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-vs-gui-based-visualizations">🖥️ Code- vs. GUI-Based Visualizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-programmatic-visualizations">✳️ Why Use Programmatic Visualizations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-next">👉 What Next?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📑 References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="programmatic-visualizations">
+<h1>📙1️⃣ Programmatic Visualizations<a class="headerlink" href="#programmatic-visualizations" title="Link to this heading">#</a></h1>
+<section id="acknowledgment">
+<h2>🙏 Acknowledgment<a class="headerlink" href="#acknowledgment" title="Link to this heading">#</a></h2>
+<p>This chapter draws inspiration from a <a class="reference external" href="https://youtu.be/RTy5iVHHGO8?si=8W4eSJVzfYHGSG5x&amp;amp;t=90">talk by Dr. Sid Chopra</a>, whose insights closely align with the themes I intended to cover here. Several key ideas are adapted, with his kind permission, from that presentation. I’m grateful to Dr. Chopra for generously allowing me to share and expand on them.</p>
+</section>
+<section id="why-visualizations-matter">
+<h2>👀 Why Visualizations Matter<a class="headerlink" href="#why-visualizations-matter" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>If I can’t picture it, I can’t understand it.</p>
+<p><em>Albert Einstein</em></p>
+</div></blockquote>
+<p>In scientific research, figures often outlast the text. They are what readers remember, what journalists spotlight, and sometimes even what enters public imagination and pop culture.</p>
+<section id="the-impact-of-visualization">
+<h3>The Impact of Visualization<a class="headerlink" href="#the-impact-of-visualization" title="Link to this heading">#</a></h3>
+<p>A powerful example is the widely circulated brain connectivity figure from a psychedelic study by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (see <a class="reference internal" href="#petri"><span class="std std-numref">Fig. 7</span></a>). Beyond communicating the core findings, this figure captured the attention of numerous media outlets and became emblematic of the study itself.</p>
+<figure class="align-default" id="petri">
+<a class="reference internal image-reference" href="../../_images/petri.jpg"><img alt="../../_images/petri.jpg" src="../../_images/petri.jpg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Impact of Psilocybin on brain connectivity as illustrated by by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#petri" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Its influence extended well beyond academia, appearing in TEDx talks (in <a class="reference external" href="https://youtu.be/8kfGaVAXeMY?si=kEiOfQ6reJ2--Spo&amp;amp;t=287">Oxford</a>, <a class="reference external" href="https://youtu.be/MZIaTaNR3gk?si=xJjZjdtVMyYzMiln&amp;amp;t=292">Warwick</a>, <a class="reference external" href="https://youtu.be/wmNHe0yS8RI?si=PHgPeuN4kHDcpVu7&amp;amp;t=538">Aarhus</a>, and <a class="reference external" href="https://youtu.be/FyAgx_tzh80?si=oeHtzKCjwpS4Vr9f&amp;amp;t=791">Varna</a>) and media stories including <a class="reference external" href="https://www.wired.com/2014/10/magic-mushroom-brain/?_sp=2d78efac-45d2-42e8-9a81-43392a7f4068.1748937952200">Wired</a>, <a class="reference external" href="https://www.vox.com/future-perfect/23972716/psychedelics-meaning-science-psychedelic-mushrooms-ketamine-psilocybin-mysticism">Vox</a>, <a class="reference external" href="https://mindmedicineaustralia.org.au/tag/magic-mushrooms/">Mind Medicine Australia</a>, <a class="reference external" href="https://alexdreyer.medium.com/the-mesh-age-be90fdc8cd82">Medium</a>, <a class="reference external" href="https://www.facebook.com/watch/?v=1772763436160905">7 news</a>, and <a class="reference external" href="https://www.businessinsider.com/how-brain-changes-on-mushrooms-2014-10">Business Insider</a>.</p>
+<p>This figure became <strong>the public face of the study</strong>, an iconic example of how visualizations can amplify a paper’s reach and cultural footprint. Yet despite its popularity, <ins>the original image remains difficult to reproduce</ins>, as standards for sharing visualizations openly were not commonplace in 2014.</p>
+<p>Fortunately, the field has evolved. Visualization science now emphasizes openness and reproducibility, supported by a growing ecosystem of tools designed to create sharable, transparent, and programmatically generated figures.</p>
+</section>
+</section>
+<section id="code-vs-gui-based-visualizations">
+<h2>🖥️ Code- vs. GUI-Based Visualizations<a class="headerlink" href="#code-vs-gui-based-visualizations" title="Link to this heading">#</a></h2>
+<p>There are two common paradigms for creating scientific visualizations:</p>
+<ul class="simple">
+<li><p><strong>GUI-based visualizations</strong>: Created through graphical user interfaces, often involving manual adjustments, screenshots, or exports. No coding is required.</p></li>
+<li><p><strong>Code-based visualizations</strong>: Built using scripts where the figure’s core elements are generated programmatically, with minimal manual adjustments (e.g. for annotations).</p></li>
+</ul>
+<p>GUI-based workflows can be fast and intuitive, giving researchers the freedom to tweak visuals until they “look right.” However, this manual process makes it difficult to reproduce the figure, especially if the original settings are undocumented or the utilized tool is not mentioned.</p>
+<p>In contrast, <strong>code-based visualizations</strong> are inherently more reproducible. Since the figure is generated from a script, it can be re-run by anyone, on a different machine, with updated parameters and data. This makes code-based approaches a foundational tool for open, transparent, and reusable science.</p>
+</section>
+<section id="why-use-programmatic-visualizations">
+<h2>✳️ Why Use Programmatic Visualizations?<a class="headerlink" href="#why-use-programmatic-visualizations" title="Link to this heading">#</a></h2>
+<p>Beyond reproducibility, programmatic visualizations offer several powerful advantages:</p>
+<ul class="simple">
+<li><p><strong>Flexibility</strong>: Seamlessly tweak styles, input data, visualization parameters, or output formats.</p></li>
+<li><p><strong>Scalability</strong>: Efficiently generate dozens or hundreds of plots in a single script; ideal for individual-level reports, making animations, iterative experiments, or sensitivity analyses.</p></li>
+<li><p><strong>Interactivity</strong>: Tools like Plotly, Bokeh, and Altair support interactive plots that can be embedded in notebooks or the web.</p></li>
+<li><p><strong>Version control</strong>: Code-generated figures can be tracked with Git alongside your analysis pipeline.</p></li>
+<li><p><strong>Automation</strong>: Integrate visualizations directly into your analysis pipelines, no manual export needed.</p></li>
+<li><p><strong>Data integrity</strong>: The connection between data and final figure is transparent and auditable, leaving no hidden/unknown steps.</p></li>
+<li><p><strong>Skill reusability</strong>: While the learning curve can be steep initially, the skills and code you develop are reusable across projects, yielding compounding returns.</p></li>
+</ul>
+<p>These strengths make code-based visualization not just a stylistic preference, but a cornerstone of reproducible and transparent research, and an essential skill in any researcher’s toolkit.</p>
+</section>
+<section id="what-next">
+<h2>👉 What Next?<a class="headerlink" href="#what-next" title="Link to this heading">#</a></h2>
+<p>In the next section, we’ll introduce a range of tools, libraries, and templates that make code-based visualizations easier and more powerful. We’ll explore how these tools integrate with Jupyter notebooks and neuroimaging file formats, enabling you to share interactive, reproducible, and publication-ready figures as part of your research outputs.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>📑 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id3">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-petri2014homological" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Giovanni Petri, Paul Expert, Federico Turkheimer, Robin Carhart-Harris, David Nutt, Peter J Hellyer, and Francesco Vaccarino. Homological scaffolds of brain functional networks. <em>Journal of The Royal Society Interface</em>, 11(101):20140873, 2014.</p>
+</aside>
+</aside>
+</div>
+<hr class="footnotes docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reproducible-visualizations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">📙 Reproducible Scientific Visualizations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03b_visualization-tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">📙2️⃣ Visualization Tools Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgment">🙏 Acknowledgment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-visualizations-matter">👀 Why Visualizations Matter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-visualization">The Impact of Visualization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-vs-gui-based-visualizations">🖥️ Code- vs. GUI-Based Visualizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-programmatic-visualizations">✳️ Why Use Programmatic Visualizations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-next">👉 What Next?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📑 References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sina Mansour L.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
