@@ -37,7 +37,7 @@ jobs:
 
       # Build the book
       - name: Build the book
-        run: timeout 1800 jupyter-book build ohbm2025-reproducible-research --execute-timeout=300
+        run: timeout 1800 jupyter-book build ohbm2025-reproducible-research
 
       # Upload the book's HTML as an artifact
       - name: Upload artifact
