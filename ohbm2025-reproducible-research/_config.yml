@@ -42,6 +42,8 @@ html:
   # Sina added:
   extra_css:
     - custom.css
+  tags:
+    hide_input: true
 
 # Sina: other changes
 sphinx:
