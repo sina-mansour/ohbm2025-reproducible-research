@@ -1,0 +1,1530 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙3️⃣ Practical Visualization Examples &#8212; OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=f5cea23c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03/03c_visualization-examples';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="📑 References" href="../04/references.html" />
+    <link rel="prev" title="📙2️⃣ Visualization Tools Overview" href="03b_visualization-tools.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="OHBM 2025 Educational; From Code to Visualization: Reproducible Pipelines for Neuroimaging Research - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    📚 Reproducible Pipelines for <br>🧠 Neuroimaging Research
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01/reproducibility-in-neuroimaging.html">📗 Why Reproducibility Matters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02/reproducible-analysis-pipelines.html">📘 Building Reproducible Analysis Pipelines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02/02a_coding-best-practices.html">1️⃣ Coding Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02/02b_jupyter-notebooks.html">2️⃣ Using Notebooks Effectively</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="reproducible-visualizations.html">📙 Reproducible Scientific Visualizations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="03a_programmatic-visualizations.html">1️⃣ Programmatic Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03b_visualization-tools.html">2️⃣ Visualization Tools Overview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3️⃣ Practical Visualization Examples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/references.html">📑 References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sina-mansour/ohbm2025-reproducible-research" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sina-mansour/ohbm2025-reproducible-research/issues/new?title=Issue%20on%20page%20%2Fchapters/03/03c_visualization-examples.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/03/03c_visualization-examples.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📙3️⃣ Practical Visualization Examples</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-preparations">Notebook Preparations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">Package Imports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">Directory Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducible-neuroimaging-visualizations">Reproducible NeuroImaging Visualizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-slice-rendering">Volume Slice Rendering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-based-visualizations">Surface-based Visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-to-surface-transformation">Volume-to-Surface Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tractography-visualization">Tractography Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brain-network-visualizations">Brain Network Visualizations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📑 References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="practical-visualization-examples">
+<h1>📙3️⃣ Practical Visualization Examples<a class="headerlink" href="#practical-visualization-examples" title="Link to this heading">#</a></h1>
+<p>This notebook presents hands-on examples that build on the concepts introduced in earlier chapters. It is intended as a practical reference, offering reusable code snippets and templates that you can adapt for your own projects. Use this resource to deepen your understanding and to develop reproducible, high-quality visualizations.</p>
+<section id="notebook-preparations">
+<h2>Notebook Preparations<a class="headerlink" href="#notebook-preparations" title="Link to this heading">#</a></h2>
+<p>Before diving into the visualization scripts, run the following (collapsed) setup cells to:</p>
+<ul class="simple">
+<li><p>Connect to Google Colab (if applicable)</p></li>
+<li><p>Import all necessary packages</p></li>
+<li><p>Configure the required directory structure</p></li>
+<li><p>Learn about the data used in these examples</p></li>
+</ul>
+<p>Once these steps are complete, you’ll be ready to begin running the visualization workflows.</p>
+<details>
+<summary><strong>Click to expand section</strong></summary>
+<section id="google-colab">
+<h3>Google Colab<a class="headerlink" href="#google-colab" title="Link to this heading">#</a></h3>
+<p>This chapter is designed to be fully interactive and can be run directly in a Google Colab environment. This allows you to experiment with the provided scripts, modify parameters, and explore how different choices affect the resulting visualizations.</p>
+<p>To open this notebook in Colab, use the link below:</p>
+<p><strong>📎 Colab Badge Placeholder</strong></p>
+<p>If you’re running this notebook in Colab, be sure to execute the cell below to install all required dependencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Things to include here (probably just a link to the requirements.txt)</span>
+<span class="c1"># Numpy, Scipy, Matplotlib, Seaborn, Cerebro, Nibabel, Plotly?, Dipy?... list to be revisited when chapter is complete</span>
+<span class="c1"># This will need to be tested in google colab</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="package-imports">
+<h3>Package Imports<a class="headerlink" href="#package-imports" title="Link to this heading">#</a></h3>
+<p>The cell below imports all the packages required to run this notebook. It assumes that the necessary dependencies listed in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> have already been installed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">colorcet</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="c1"># Cerebro brain viewer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cerebro</span><span class="w"> </span><span class="kn">import</span> <span class="n">cerebro_brain_utils</span> <span class="k">as</span> <span class="n">cbu</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cerebro</span><span class="w"> </span><span class="kn">import</span> <span class="n">cerebro_brain_viewer</span> <span class="k">as</span> <span class="n">cbv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="directory-setup">
+<h3>Directory Setup<a class="headerlink" href="#directory-setup" title="Link to this heading">#</a></h3>
+<p>Next, let’s set up the directory structure that will be used throughout this tutorial. In this case, we’ll simply change into the appropriate directory, as the required data is already included as part of this repository.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the working directory</span>
+<span class="n">working_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="c1"># create a flag to indicate whether the directory setup is complete</span>
+<span class="k">if</span> <span class="s1">&#39;directory_setup_complete&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="n">directory_setup_complete</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># only proceed if the directory setup is not complete</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">directory_setup_complete</span><span class="p">:</span>
+    <span class="c1"># change the working directory to the home directory of the repository</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;../../..&quot;</span><span class="p">)</span>
+    <span class="c1"># print the current working directory to make sure it is correct</span>
+    <span class="n">working_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current working directory: </span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># set the flag to indicate that the directory setup is complete</span>
+    <span class="n">directory_setup_complete</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># print a message indicating that the directory setup is already complete</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory setup is already complete. No changes made.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current working directory: </span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current working directory: /mnt/local_storage/Research/Codes/jupyterbooks/ohbm2025-reproducible-research
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tutorial-data">
+<h3>Tutorial Data<a class="headerlink" href="#tutorial-data" title="Link to this heading">#</a></h3>
+<p>A minimal set of neuroimaging files has been prepared to support the execution of the examples in this notebook.</p>
+<p><strong>⚠️ Note</strong>: This curated data is provided exclusively for educational purposes as part of this Jupyter Book tutorial.</p>
+<p>For access to complete datasets or for use beyond this tutorial, please refer to the original data sources listed below.</p>
+</section>
+<section id="data-sources">
+<h3>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h3>
+<p>The neuroimaging data used in this tutorial are derived from the following publicly available resources:</p>
+<ul class="simple">
+<li><p><strong>Human Connectome Project</strong>’s <a class="reference external" href="https://www.humanconnectome.org/study/hcp-young-adult/article/s1200-group-average-data-release">Group Average Adult Template</a> (see Glasser <em>et al.</em><a class="footnote-reference brackets" href="#footcite-glasser2013minimal" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, Van Essen <em>et al.</em><a class="footnote-reference brackets" href="#footcite-van2012human" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, and Marcus <em>et al.</em><a class="footnote-reference brackets" href="#footcite-marcus2013human" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>)</p></li>
+<li><p>The Glasser Cortical brain atlas (see Glasser <em>et al.</em><a class="footnote-reference brackets" href="#footcite-glasser2016multi" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>)</p></li>
+<li><p>Tractography data from the <a class="reference external" href="https://github.com/SlicerDMRI/ORG-Atlases?tab=readme-ov-file">ORG fiber clustering atlas</a> (see Zhang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-zhang2018anatomically" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>)</p></li>
+<li><p>Functional connectivity data from Mansour <em>et al.</em><a class="footnote-reference brackets" href="#footcite-mansour2021high" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> (<a class="reference external" href="https://github.com/sina-mansour/neural-identity">more information</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/yetianmed/subcortex">Melbourne subcortical atlas</a> (see Tian <em>et al.</em><a class="footnote-reference brackets" href="#footcite-tian2020topographic" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>)</p></li>
+</ul>
+</details>
+</section>
+</section>
+<section id="reproducible-neuroimaging-visualizations">
+<h2>Reproducible NeuroImaging Visualizations<a class="headerlink" href="#reproducible-neuroimaging-visualizations" title="Link to this heading">#</a></h2>
+<p>With the directory structure in place and example neuroimaging data made available, we can now turn our attention to creating a variety of code-based visualizations.</p>
+<p>These examples are designed to illustrate best practices for reproducible neuroimaging visualization workflows and demonstrate how to effectively explore and present brain imaging data using code.</p>
+<section id="volume-slice-rendering">
+<h3>Volume Slice Rendering<a class="headerlink" href="#volume-slice-rendering" title="Link to this heading">#</a></h3>
+<p>In this section, we’ll demonstrate how to render volume slices using data from the Human Connectome Project’s <a class="reference external" href="https://www.humanconnectome.org/study/hcp-young-adult/article/s1200-group-average-data-release"><strong>S1200 Group Average Data Release</strong></a>. Specifically, we’ll visualize a set of axial slices from the group-average T1-weighted image, followed by an overlay of the T2-weighted image using an arbitrary intensity threshold.</p>
+<p>The images will be loaded using <strong>Nibabel</strong>, and slices will be visualized using <strong>Matplotlib</strong>. To promote reusability and reproducibility, we’ll structure the code as modular, well-documented functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">axial_volume_slice_render_nifti</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render a single slice from a 3D NIfTI volume.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - img: NIfTI image loaded by nibabel in the RAS+ space.</span>
+<span class="sd">    - slice_index: int, index of the slice to render.</span>
+<span class="sd">    - cmap: str, colormap to use for rendering.</span>
+<span class="sd">    - clims: tuple, the min and max value of the color range.</span>
+<span class="sd">    - ax: matplotlib axis to render the slice on.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the image data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+
+    <span class="c1"># Check if the slice index is valid</span>
+    <span class="k">if</span> <span class="n">slice_index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">slice_index</span> <span class="o">&gt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Slice index out of bounds.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Extract the specified slice</span>
+    <span class="n">slice_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
+
+    <span class="c1"># Plot the slice</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slice_data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="c1"># Apply clim if given</span>
+    <span class="k">if</span> <span class="n">clims</span><span class="p">:</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">set_clim</span><span class="p">(</span><span class="o">*</span><span class="n">clims</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">visualize_multiple_axial_slices</span><span class="p">(</span><span class="n">nifti_file</span><span class="p">,</span> <span class="n">slice_indices</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualize multiple axial slices from a 3D NIfTI volume.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - img: NIfTI image file path.</span>
+<span class="sd">    - slice_indices: list of int, indices of the slices to render.</span>
+<span class="sd">    - cmap: str, colormap to use for rendering.</span>
+<span class="sd">    - clims: tuple, the min and max value of the color range.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Load NIfTI image with nibabel</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">nifti_file</span><span class="p">)</span>
+
+    <span class="c1"># Reorient to RAS+ space</span>
+    <span class="n">img_ras</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">as_closest_canonical</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="c1"># Get total number of axial slices</span>
+    <span class="n">total_slices</span> <span class="o">=</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Sample evenly spaced indices, avoiding edges</span>
+    <span class="n">selected_slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_slices</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">slice_indices</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">selected_slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">selected_slices</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Define color limits</span>
+    <span class="n">clims</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># Create the figure</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">slice_indices</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">slice_index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">selected_slices</span><span class="p">):</span>
+        <span class="n">axial_volume_slice_render_nifti</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">)</span>
+
+        <span class="c1"># add text to show axial slice index</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Slice </span><span class="si">{</span><span class="n">slice_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set plot background to black</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set tight layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_multiple_axial_slices</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/S1200_AverageT1w_restore.nii.gz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7822aa0d7e347c977955f5a084ee0126e66fe5a47994cd2c37ca9940eb2d63a4.png" src="../../_images/7822aa0d7e347c977955f5a084ee0126e66fe5a47994cd2c37ca9940eb2d63a4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">axial_volume_slice_render_nifti_with_overlay</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">overlay_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">overlay_threshold</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlay_cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">overlay_alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">overlay_clim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render a single slice from a 3D NIfTI volume.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - img: NIfTI image loaded by nibabel in the RAS+ space.</span>
+<span class="sd">    - slice_index: int, index of the slice to render.</span>
+<span class="sd">    - cmap: str, colormap to use for rendering.</span>
+<span class="sd">    - clims: tuple, the min and max value of the color range.</span>
+<span class="sd">    - ax: matplotlib axis to render the slice on.</span>
+<span class="sd">    - overlay_ras: NIfTI image loaded by nibabel in the RAS+ space for the overlay.</span>
+<span class="sd">    - overlay_threshold: float, threshold for the overlay data.</span>
+<span class="sd">    - overlay_cmap: str, colormap to use for the overlay.</span>
+<span class="sd">    - overlay_alpha: float, transparency level for the overlay.</span>
+<span class="sd">    - overlay_clim: tuple, the min and max value of the color range for the overlay.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the image data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+    <span class="n">overlay_data</span> <span class="o">=</span> <span class="n">overlay_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+
+    <span class="c1"># Apply the overlay threshold</span>
+    <span class="n">overlay_data</span><span class="p">[</span><span class="n">overlay_data</span> <span class="o">&lt;</span> <span class="n">overlay_threshold</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  <span class="c1"># Set values below the threshold to NaN</span>
+
+    <span class="c1"># Check if the slice index is valid</span>
+    <span class="k">if</span> <span class="n">slice_index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">slice_index</span> <span class="o">&gt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Slice index out of bounds.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Extract the specified slice</span>
+    <span class="n">slice_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
+    <span class="n">overlay_slice</span> <span class="o">=</span> <span class="n">overlay_data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">slice_index</span><span class="p">]</span>
+
+    <span class="c1"># Plot the slice</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slice_data</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Apply clim if given</span>
+    <span class="k">if</span> <span class="n">clims</span><span class="p">:</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">set_clim</span><span class="p">(</span><span class="o">*</span><span class="n">clims</span><span class="p">)</span>
+
+    <span class="c1"># Before plotting the overlay, set the colormap&#39;s bad color to transparent</span>
+    <span class="n">overlay_cmap</span> <span class="o">=</span> <span class="n">overlay_cmap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Make a copy to avoid modifying the global colormap</span>
+    <span class="n">overlay_cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># RGBA, alpha=0 for transparency</span>
+
+
+    <span class="c1"># Overlay the data</span>
+    <span class="n">om</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">overlay_slice</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">overlay_cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">overlay_alpha</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Apply overlay clim if given</span>
+    <span class="k">if</span> <span class="n">overlay_clim</span><span class="p">:</span>
+        <span class="n">om</span><span class="o">.</span><span class="n">set_clim</span><span class="p">(</span><span class="o">*</span><span class="n">overlay_clim</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">visualize_multiple_axial_slices_with_overlay</span><span class="p">(</span><span class="n">nifti_file</span><span class="p">,</span> <span class="n">overlay_file</span><span class="p">,</span> <span class="n">slice_indices</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">overlay_cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualize multiple axial slices from a 3D NIfTI volume, while also displaying an overlay image on top.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - img: NIfTI image file path.</span>
+<span class="sd">    - slice_indices: int, number of slices to render.</span>
+<span class="sd">    - cmap: str, colormap to use for rendering.</span>
+<span class="sd">    - clims: tuple, the min and max value of the color range.</span>
+<span class="sd">    - overlay_file: NIfTI image file path for the overlay.</span>
+<span class="sd">    - figsize: tuple, size of the matplotlib figure.</span>
+<span class="sd">    - overlay_cmap: str, colormap to use for the overlay.</span>
+
+<span class="sd">    Note: This function assumes that the overlay image is in the same dimension as the main image.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Load NIfTI images with nibabel</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">nifti_file</span><span class="p">)</span>
+    <span class="n">overlay</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">overlay_file</span><span class="p">)</span>
+
+    <span class="c1"># Reorient to RAS+ space</span>
+    <span class="n">img_ras</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">as_closest_canonical</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">overlay_ras</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">as_closest_canonical</span><span class="p">(</span><span class="n">overlay</span><span class="p">)</span>
+
+    <span class="c1"># Get total number of axial slices</span>
+    <span class="n">total_slices</span> <span class="o">=</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Sample evenly spaced indices, avoiding edges</span>
+    <span class="n">selected_slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_slices</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">slice_indices</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">selected_slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">selected_slices</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Define an overlay threshold as the 80th percentile in the data</span>
+    <span class="n">overlay_threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">overlay_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="c1"># Define color limits</span>
+    <span class="n">clims</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">img_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">overlay_clims</span> <span class="o">=</span> <span class="p">(</span><span class="n">overlay_threshold</span><span class="p">,</span> <span class="n">overlay_ras</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># Create the figure</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">slice_indices</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">slice_index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">selected_slices</span><span class="p">):</span>
+        <span class="n">axial_volume_slice_render_nifti_with_overlay</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">overlay_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">overlay_threshold</span><span class="o">=</span><span class="n">overlay_threshold</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span> <span class="n">overlay_cmap</span><span class="o">=</span><span class="n">overlay_cmap</span><span class="p">,</span> <span class="n">overlay_clim</span><span class="o">=</span><span class="n">overlay_clims</span><span class="p">)</span>
+
+        <span class="c1"># add text to show axial slice index</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Slice </span><span class="si">{</span><span class="n">slice_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set plot background to black</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set tight layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize T1 weighted image, and overlay T2w on top of it</span>
+<span class="n">visualize_multiple_axial_slices_with_overlay</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/S1200_AverageT1w_restore.nii.gz&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/S1200_AverageT2w_restore.nii.gz&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dde6f6a44441d08ac47d8f5db69c5459a478f0dc09feea678495a3d983fe8b9a.png" src="../../_images/dde6f6a44441d08ac47d8f5db69c5459a478f0dc09feea678495a3d983fe8b9a.png" />
+</div>
+</div>
+</section>
+<section id="surface-based-visualizations">
+<h3>Surface-based Visualizations<a class="headerlink" href="#surface-based-visualizations" title="Link to this heading">#</a></h3>
+<p>In the examples below, we will work with surface-based data from the Human Connectome Project’s <a class="reference external" href="https://www.humanconnectome.org/study/hcp-young-adult/article/s1200-group-average-data-release"><strong>S1200 Group Average Data Release</strong></a>, specifically using the fsLR template surface coordinates.</p>
+<p>We’ll visualize the average cortical curvature mapped onto the cortical surface to highlight anatomical landmarks and folding patterns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brain visualizations with Cerebro</span>
+
+<span class="c1"># basic parameters</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="s1">&#39;inflated&#39;</span>
+<span class="n">expand</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># load an example dscalar</span>
+<span class="n">dscalar_file</span> <span class="o">=</span> <span class="n">cbu</span><span class="o">.</span><span class="n">cifti_template_file</span>
+<span class="n">dscalar</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">)</span>
+
+<span class="c1"># read the brain models from the dscalar header</span>
+<span class="n">brain_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dscalar</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">get_index_map</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">brain_models</span><span class="p">]</span>
+
+<span class="c1"># load surfaces for visualization</span>
+<span class="n">left_surface_file</span><span class="p">,</span> <span class="n">right_surface_file</span> <span class="o">=</span> <span class="n">cbu</span><span class="o">.</span><span class="n">get_left_and_right_GIFTI_template_surface</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+<span class="n">left_surface</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">left_surface_file</span><span class="p">)</span>
+<span class="n">right_surface</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">right_surface_file</span><span class="p">)</span>
+
+<span class="c1"># extract surface information</span>
+<span class="n">lx</span><span class="p">,</span> <span class="n">ly</span><span class="p">,</span> <span class="n">lz</span> <span class="o">=</span> <span class="n">left_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
+<span class="n">lt</span> <span class="o">=</span> <span class="n">left_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span> <span class="n">rz</span> <span class="o">=</span> <span class="n">right_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">right_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># combine into a complete brain</span>
+<span class="n">lrx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lx</span> <span class="o">-</span> <span class="n">expand</span><span class="p">,</span> <span class="n">rx</span> <span class="o">+</span> <span class="n">expand</span><span class="p">])</span>
+<span class="n">lry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ly</span><span class="p">,</span> <span class="n">ry</span><span class="p">])</span>
+<span class="n">lrz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lz</span><span class="p">,</span> <span class="n">rz</span><span class="p">])</span>
+<span class="n">lrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lt</span><span class="p">,</span> <span class="p">(</span><span class="n">rt</span> <span class="o">+</span> <span class="n">lx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+
+<span class="n">lxyz</span> <span class="o">=</span> <span class="n">left_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">rxyz</span> <span class="o">=</span> <span class="n">right_surface</span><span class="o">.</span><span class="n">darrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">lrxyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lrx</span><span class="p">,</span> <span class="n">lry</span><span class="p">,</span> <span class="n">lrz</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># create a mapping between surface and cifti vertices</span>
+<span class="n">left_cortical_surface_model</span><span class="p">,</span> <span class="n">right_cortical_surface_model</span> <span class="o">=</span> <span class="n">brain_models</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">brain_models</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cifti_to_surface</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">surface_to_cifti</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">left_cortical_surface_model</span><span class="o">.</span><span class="n">vertex_indices</span><span class="p">):</span>
+    <span class="n">cifti_to_surface</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">surface_to_cifti</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">right_cortical_surface_model</span><span class="o">.</span><span class="n">vertex_indices</span><span class="p">):</span>
+    <span class="n">cifti_to_surface</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">right_cortical_surface_model</span><span class="o">.</span><span class="n">index_offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">surface_to_cifti</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">rx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">right_cortical_surface_model</span><span class="o">.</span><span class="n">index_offset</span>
+
+<span class="c1"># construct data over surface</span>
+<span class="n">surface_mask</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">surface_to_cifti</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+
+<span class="c1"># ignore warning when loading cifti</span>
+<span class="n">nib</span><span class="o">.</span><span class="n">imageglobals</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.axes_grid1.inset_locator</span><span class="w"> </span><span class="kn">import</span> <span class="n">inset_axes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSpec</span>
+
+<span class="c1"># Function to plot a single view of the brain using Cerebro</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_single_view_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vlims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclusion_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cifti_left_right_seperation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">surface</span> <span class="o">=</span> <span class="s1">&#39;midthickness&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a single view of the brain using Cerebro.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - dscalar_data: numpy array, data to be visualized on the brain surface.</span>
+<span class="sd">    - ax: matplotlib axis to render the brain view on.</span>
+<span class="sd">    - colormap: colormap to use for the data.</span>
+<span class="sd">    - clims: tuple, color limits for the data.</span>
+<span class="sd">    - vlims: tuple, value limits for the data.</span>
+<span class="sd">    - exclusion_color: color to use for excluded data points.</span>
+<span class="sd">    - view: tuple, camera view configuration for the brain viewer.</span>
+<span class="sd">    - show_colorbar: bool, whether to show the colorbar.</span>
+<span class="sd">    - colorbar_format: str, format for the colorbar ticks.</span>
+<span class="sd">    - cifti_left_right_seperation: int, separation distance for left and right hemispheres.</span>
+<span class="sd">    - surface: str, type of fs-LR surface to use for visualization (e.g., &#39;midthickness&#39;, &#39;inflated&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">my_brain_viewer</span> <span class="o">=</span> <span class="n">cbv</span><span class="o">.</span><span class="n">Cerebro_brain_viewer</span><span class="p">(</span><span class="n">offscreen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">null_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">no_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
+
+        <span class="n">surface_model</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">load_template_GIFTI_cortical_surface_models</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+
+        <span class="n">cifti_space</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_cifti_space</span><span class="p">(</span>
+            <span class="n">volumetric_structures</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cifti_left_right_seperation</span><span class="o">=</span><span class="n">cifti_left_right_seperation</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">dscalar_layer</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">add_cifti_dscalar_layer</span><span class="p">(</span>
+            <span class="n">dscalar_data</span><span class="o">=</span><span class="n">dscalar_data</span><span class="p">,</span>
+            <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span>
+            <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span>
+            <span class="n">vlims</span><span class="o">=</span><span class="n">vlims</span><span class="p">,</span>
+            <span class="n">exclusion_color</span><span class="o">=</span><span class="n">exclusion_color</span><span class="p">,</span>
+            <span class="n">opacity</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">camconf</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">_view_to_camera_config</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="c1"># camconf = my_brain_viewer.zoom_camera_to_content(camconf)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">change_view</span><span class="p">(</span><span class="o">**</span><span class="n">camconf</span><span class="p">)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">offscreen_draw_to_matplotlib_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_left_right_surface_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># Hide the parent axis</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Create a 2x2 GridSpec within the axis using inset_axes</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">inset_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+    <span class="n">sub_gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">gs</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+
+    <span class="c1"># Create a 4x4 grid</span>
+    <span class="n">ax_tl</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">sub_gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_tr</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">sub_gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax_bl</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">sub_gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax_br</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">sub_gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    
+    <span class="c1"># separate data to left and right</span>
+    <span class="n">dscalar_data_left</span> <span class="o">=</span> <span class="n">dscalar_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">dscalar_data_left</span><span class="p">[</span><span class="n">left_cortical_surface_model</span><span class="o">.</span><span class="n">index_count</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">dscalar_data_right</span> <span class="o">=</span> <span class="n">dscalar_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">dscalar_data_right</span><span class="p">[:</span><span class="n">left_cortical_surface_model</span><span class="o">.</span><span class="n">index_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+    <span class="c1"># Lateral left view</span>
+    <span class="n">plot_single_view_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data_left</span><span class="p">,</span> <span class="n">ax_tl</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span>
+                                  <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="mi">420</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="c1"># Medial left view</span>
+    <span class="n">plot_single_view_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data_left</span><span class="p">,</span> <span class="n">ax_bl</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span>
+                                  <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="mi">420</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">cifti_left_right_seperation</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+    <span class="c1"># Lateral right view</span>
+    <span class="n">plot_single_view_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data_right</span><span class="p">,</span> <span class="n">ax_tr</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span>
+                                  <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="mi">420</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="c1"># Medial right view</span>
+    <span class="n">plot_single_view_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data_right</span><span class="p">,</span> <span class="n">ax_br</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span>
+                                  <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="mi">420</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">cifti_left_right_seperation</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">show_colorbar</span><span class="p">:</span>
+        <span class="n">cax</span> <span class="o">=</span> <span class="n">inset_axes</span><span class="p">(</span>
+            <span class="n">ax</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="s2">&quot;30%&quot;</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="s2">&quot;4%&quot;</span><span class="p">,</span>
+            <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span>
+            <span class="n">bbox_transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+            <span class="n">borderpad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
+            <span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span>
+                <span class="n">norm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">clims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">clims</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span>
+            <span class="p">),</span>
+            <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span>
+            <span class="n">aspect</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="n">colorbar_format</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">outline</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">suppress_c_output</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Suppress low-level C output by redirecting stdout and stderr to /dev/null.&quot;&quot;&quot;</span>
+    <span class="n">devnull</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">devnull</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_WRONLY</span><span class="p">)</span>
+    <span class="n">old_stdout</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">dup</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">old_stderr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">dup</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">devnull</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">devnull</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">devnull</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">restore_c_output</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Restore the original stdout and stderr.&quot;&quot;&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">old_stderr</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">old_stderr</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a dscalar file using Cerebro&#39;s brain viewer.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - dscalar_file: str, path to the dscalar file.</span>
+<span class="sd">    - ax: matplotlib axis to render the plot on.</span>
+<span class="sd">    - kwargs: additional keyword arguments for the plot.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dscalar_data</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">)</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">clims</span> <span class="o">=</span> <span class="p">(</span><span class="n">dscalar_data</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">dscalar_data</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># Suppress low-level output</span>
+    <span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span> <span class="o">=</span> <span class="n">suppress_c_output</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Plot the left and right surfaces with Cerebro</span>
+        <span class="n">plot_left_right_surface_with_cerebro</span><span class="p">(</span>
+            <span class="n">dscalar_data</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Restore the original stdout and stderr</span>
+        <span class="n">restore_c_output</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot curvature dscalar file in gray scale</span>
+<span class="n">dscalar_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/S1200.curvature_MSMAll.32k_fs_LR.dscalar.nii&quot;</span>
+
+<span class="c1"># Create a figure and axis for the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># Plot the dscalar file with Cerebro</span>
+<span class="n">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/800cb6f9b95d79ee9e00677e9c91929a0a232585709634b0e1e8f3cc9d652c19.png" src="../../_images/800cb6f9b95d79ee9e00677e9c91929a0a232585709634b0e1e8f3cc9d652c19.png" />
+</div>
+</div>
+</section>
+<section id="volume-to-surface-transformation">
+<h3>Volume-to-Surface Transformation<a class="headerlink" href="#volume-to-surface-transformation" title="Link to this heading">#</a></h3>
+<p>In this example, we demonstrate how to perform a volume-to-surface transformation using the <a class="reference external" href="https://github.com/yetianmed/subcortex">Melbourne Subcortical Atlas</a>, specifically from its Scale 1 parcellation (available from <a class="reference external" href="https://github.com/yetianmed/subcortex/tree/master/Group-Parcellation/3T/Subcortex-Only"><code class="docutils literal notranslate"><span class="pre">Tian_Subcortex_S1_3T.nii.gz</span></code></a>).</p>
+<p>We will generate and render a separate cortical surface visualization for each labeled region in the atlas.</p>
+<p>This transformation and rendering will be performed using tools from the <strong>Cerebro Brain Viewer</strong>, which provides convenient functionality for mapping volumetric data onto surface meshes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a single view of a glass brain using Cerebro</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_atlas_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">atlas_file</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a single view of the brain with an atlas volume to surface transformation using Cerebro.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - ax: matplotlib axis to render the brain view on.</span>
+<span class="sd">    - atlas_file: str, path to the atlas file (NIfTI format).</span>
+<span class="sd">    - view: tuple, camera view configuration for the brain viewer.</span>
+<span class="sd">    - glass_color: tuple, color for the glass brain overlay.</span>
+<span class="sd">    - surface: str, type of fs-LR surface to use for visualization (e.g., &#39;midthickness&#39;, &#39;inflated&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">my_brain_viewer</span> <span class="o">=</span> <span class="n">cbv</span><span class="o">.</span><span class="n">Cerebro_brain_viewer</span><span class="p">(</span><span class="n">offscreen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">null_color</span><span class="o">=</span><span class="n">glass_color</span><span class="p">,</span> <span class="n">no_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
+
+        <span class="n">surface_model</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">load_template_GIFTI_cortical_surface_models</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+
+        <span class="c1"># visualize the glass brain</span>
+        <span class="n">cifti_space</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_cifti_space</span><span class="p">(</span>
+            <span class="n">volumetric_structures</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Now, process the atlas file</span>
+        <span class="n">atlas_img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">atlas_file</span><span class="p">)</span>
+        <span class="n">atlas_data</span> <span class="o">=</span> <span class="n">atlas_img</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+
+        <span class="c1"># Extract atlas labels except for zero (background)</span>
+        <span class="n">atlas_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">atlas_data</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Create a directory to store temporary binary masks</span>
+        <span class="n">temp_masks_dir</span> <span class="o">=</span> <span class="s2">&quot;data/temp_masks&quot;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">temp_masks_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Visualize the atlas labels in the glass brain</span>
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">atlas_labels</span><span class="p">:</span>
+            <span class="c1"># Store binary masks for each atlas label</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">atlas_data</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="n">mask_img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">atlas_img</span><span class="o">.</span><span class="n">affine</span><span class="p">)</span>
+            <span class="n">mask_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp_masks_dir</span><span class="si">}</span><span class="s2">/atlas_label_</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">.nii.gz&quot;</span>
+            <span class="n">nib</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">mask_img</span><span class="p">,</span> <span class="n">mask_file</span><span class="p">)</span>
+
+            <span class="c1"># Get a color for the mask from a colormap with randomness</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">prism</span><span class="p">((</span><span class="n">label</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">atlas_labels</span><span class="p">))</span>
+            <span class="c1"># color = cc.cm.rainbow((label - 1) / len(atlas_labels))</span>
+
+            <span class="c1"># Add the mask as a layer in the brain viewer</span>
+            <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_mask_surface</span><span class="p">(</span>
+                <span class="n">mask_file</span><span class="p">,</span>  <span class="c1"># The volumetric file</span>
+                <span class="mf">0.7</span><span class="p">,</span>  <span class="c1"># A threshold to mask the binary data</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>  <span class="c1"># Use the colormap color</span>
+                <span class="n">gradient_direction</span><span class="o">=</span><span class="s2">&quot;ascent&quot;</span><span class="p">,</span>  <span class="c1"># This defines the surface normal directions</span>
+                <span class="n">smoothing</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>  <span class="c1"># Iteratively smooth the surface to look better</span>
+                <span class="n">smoothing_filter</span><span class="o">=</span><span class="s2">&quot;taubin&quot;</span><span class="p">,</span>  <span class="c1"># Type of smoothing filter to use</span>
+            <span class="p">)</span>
+        
+        <span class="c1"># Delete the temporary masks directory after use</span>
+        <span class="k">for</span> <span class="n">mask_file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">temp_masks_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_masks_dir</span><span class="p">,</span> <span class="n">mask_file</span><span class="p">))</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">temp_masks_dir</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">camconf</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">_view_to_camera_config</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="c1"># camconf = my_brain_viewer.zoom_camera_to_content(camconf)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">change_view</span><span class="p">(</span><span class="o">**</span><span class="n">camconf</span><span class="p">)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">offscreen_draw_to_matplotlib_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a figure and axis for the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># Suppress low-level output</span>
+<span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span> <span class="o">=</span> <span class="n">suppress_c_output</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Plot the glass brain with the subcortical atlas</span>
+    <span class="n">plot_glass_brain_and_atlas_with_cerebro</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">atlas_file</span><span class="o">=</span><span class="s2">&quot;data/Tian_Subcortex_S1_3T.nii.gz&quot;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;inflated&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restore the original stdout and stderr</span>
+    <span class="n">restore_c_output</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f13b4061454bf16e3ec8aa8190e9783861486f21b15698d52311f0e7b2d7d9b0.png" src="../../_images/f13b4061454bf16e3ec8aa8190e9783861486f21b15698d52311f0e7b2d7d9b0.png" />
+</div>
+</div>
+</section>
+<section id="tractography-visualization">
+<h3>Tractography Visualization<a class="headerlink" href="#tractography-visualization" title="Link to this heading">#</a></h3>
+<p>In this section, we will visualize tractography data from the <a class="reference external" href="https://github.com/SlicerDMRI/ORG-Atlases?tab=readme-ov-file">ORG fiber clustering atlas</a>. We will render a single fiber bundle using the Cerebro Brain Viewer, showcasing how to load and display streamline data effectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a single view of a glass brain using Cerebro</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_tractography_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">tract_file</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">maximum_streamlines</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a single view of the brain with an atlas volume to surface transformation using Cerebro.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - ax: matplotlib axis to render the brain view on.</span>
+<span class="sd">    - tract_file: str, path to the tractography file (tck format).</span>
+<span class="sd">    - view: tuple, camera view configuration for the brain viewer.</span>
+<span class="sd">    - glass_color: tuple, color for the glass brain overlay.</span>
+<span class="sd">    - surface: str, type of fs-LR surface to use for visualization (e.g., &#39;midthickness&#39;, &#39;inflated&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">my_brain_viewer</span> <span class="o">=</span> <span class="n">cbv</span><span class="o">.</span><span class="n">Cerebro_brain_viewer</span><span class="p">(</span><span class="n">offscreen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">null_color</span><span class="o">=</span><span class="n">glass_color</span><span class="p">,</span> <span class="n">no_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
+
+        <span class="n">surface_model</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">load_template_GIFTI_cortical_surface_models</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+
+        <span class="c1"># visualize the glass brain</span>
+        <span class="n">cifti_space</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_cifti_space</span><span class="p">(</span>
+            <span class="n">volumetric_structures</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Now, process the tractography file</span>
+        <span class="n">tractography</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">streamlines</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">tract_file</span><span class="p">)</span>
+
+        <span class="c1"># sample at most maximum_streamlines streamlines for visualization</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tractography</span><span class="o">.</span><span class="n">streamlines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">maximum_streamlines</span><span class="p">:</span>
+            <span class="n">selected_streamlines</span> <span class="o">=</span> <span class="n">tractography</span><span class="o">.</span><span class="n">streamlines</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tractography</span><span class="o">.</span><span class="n">streamlines</span><span class="p">),</span> <span class="n">maximum_streamlines</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">selected_streamlines</span> <span class="o">=</span> <span class="n">tractography</span><span class="o">.</span><span class="n">streamlines</span>
+
+        <span class="c1"># for each streamline, visualize it with cylinders</span>
+        <span class="k">for</span> <span class="n">streamline</span> <span class="ow">in</span> <span class="n">selected_streamlines</span><span class="p">:</span>
+            <span class="c1"># make pairs of consecutive points in the streamline</span>
+            <span class="n">line_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">streamline</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">streamline</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># shape (N, 2, 3)</span>
+
+            <span class="c1"># get a symmetric color gradient for the streamline</span>
+            <span class="n">color_gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">line_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">color_gradient</span><span class="p">)</span>  <span class="c1"># Use a colormap to get colors for the streamline</span>
+
+            <span class="c1"># visualize the streamline as a cylinder</span>
+            <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_cylinders</span><span class="p">(</span><span class="n">line_coordinates</span><span class="p">,</span> <span class="n">radii</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">camconf</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">_view_to_camera_config</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="c1"># camconf = my_brain_viewer.zoom_camera_to_content(camconf)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">change_view</span><span class="p">(</span><span class="o">**</span><span class="n">camconf</span><span class="p">)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">offscreen_draw_to_matplotlib_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a figure and axis for the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># Suppress low-level output</span>
+<span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span> <span class="o">=</span> <span class="n">suppress_c_output</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Plot the glass brain with the subcortical atlas</span>
+    <span class="n">plot_glass_brain_and_tractography_with_cerebro</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="c1"># axis to render the brain view on</span>
+        <span class="n">tract_file</span><span class="o">=</span><span class="s2">&quot;data/T_SLF-III-cluster_00209.tck&quot;</span><span class="p">,</span> <span class="c1"># path to the tractography file</span>
+        <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="mi">400</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="c1"># camera view configuration for the brain viewer (a view from the right side, slightly tilted towards the frontal superior part of the brain)</span>
+        <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;inflated&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restore the original stdout and stderr</span>
+    <span class="n">restore_c_output</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span><span class="p">)</span>
+
+<span class="c1"># Add text to the plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">&quot;Tractography Streamlines (SLF-III)&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.95, &#39;Tractography Streamlines (SLF-III)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/3ee40fc17df29846149fd2d1b7f81a445d19d268210fe85ab496f42b53605249.png" src="../../_images/3ee40fc17df29846149fd2d1b7f81a445d19d268210fe85ab496f42b53605249.png" />
+</div>
+</div>
+</section>
+<section id="brain-network-visualizations">
+<h3>Brain Network Visualizations<a class="headerlink" href="#brain-network-visualizations" title="Link to this heading">#</a></h3>
+<p>This example uses functional human connectome data from Mansour <em>et al.</em><a class="footnote-reference brackets" href="#footcite-mansour2021high" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. We will visualize both a connectivity heatmap and a 3D brain network derived from an individual’s functional connectome, mapped onto the HCP MMP1 atlas (Glasser <em>et al.</em><a class="footnote-reference brackets" href="#footcite-glasser2016multi" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>).</p>
+<p>The connectivity heatmap will be created using <strong>Matplotlib</strong>, while the 3D brain network visualization will be generated with the <strong>Cerebro Brain Viewer</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the HCP MMP1 atlas</span>
+<span class="n">glasser_atlas_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/Glasser_Atlas.32k_fs_LR.dlabel.nii&quot;</span>
+<span class="n">glasser_atlas</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">glasser_atlas_file</span><span class="p">)</span>
+
+<span class="c1"># Load individual&#39;s functional connectivity matrix</span>
+<span class="n">fc_matrix_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/100206_test_functional_connectivity_glasser.npy&quot;</span>
+<span class="n">fc_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fc_matrix_file</span><span class="p">)</span>
+
+<span class="c1"># Load the label names associated with the rows and columns of the functional connectivity matrix</span>
+<span class="n">label_names_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/glasser_atlas_labels.json&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_names_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">label_names</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">label_indices_lookup</span> <span class="o">=</span> <span class="p">{</span><span class="n">label_names</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">label_names</span><span class="p">}</span>
+
+<span class="c1"># Get label orders from glasser atlas</span>
+<span class="n">glasser_atlas_labels_dict</span> <span class="o">=</span> <span class="n">glasser_atlas</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Reorder the functional connectivity matrix according to the glasser atlas labels</span>
+<span class="n">fc_reordering_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">label_indices_lookup</span><span class="p">[</span><span class="n">glasser_atlas_labels_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">glasser_atlas_labels_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">fc_matrix_reordered</span> <span class="o">=</span> <span class="n">fc_matrix</span><span class="p">[</span><span class="n">fc_reordering_permutation</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">fc_reordering_permutation</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a figure and axis for the heatmap</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Plot the heatmap of the functional connectivity matrix</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fc_matrix_reordered</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Set the ticks and labels for the heatmap</span>
+<span class="n">glasser_label_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">glasser_atlas_labels_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">glasser_atlas_labels_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Add a dashed line at the middle of the heatmap to separate left and right hemispheres</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">glasser_label_names</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">glasser_label_names</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Add a colorbar to the heatmap</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Functional Connectivity (Pearson Correlation)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Set the title for the heatmap</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Functional Connectivity Matrix (Glasser Atlas)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Functional Connectivity Matrix (Glasser Atlas)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/c92af824ad4e3703f18739d736e3b5d958cf68b4b0fb9e336d9ca25f0feb1e41.png" src="../../_images/c92af824ad4e3703f18739d736e3b5d958cf68b4b0fb9e336d9ca25f0feb1e41.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a 3D brain network using Cerebro</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_network_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">adjacency_matrix</span><span class="p">,</span> <span class="n">node_coords</span><span class="p">,</span> <span class="n">node_radii</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">node_colors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span> <span class="n">edge_radii</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">maximum_streamlines</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a single view of the brain with an atlas volume to surface transformation using Cerebro.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - ax: matplotlib axis to render the brain view on.</span>
+<span class="sd">    - adjacency_matrix: 2D array, the adjacency matrix representing the brain network.</span>
+<span class="sd">    - node_coords: 2D array, the coordinates of the nodes in the brain network.</span>
+<span class="sd">    - view: tuple, camera view configuration for the brain viewer.</span>
+<span class="sd">    - glass_color: tuple, color for the glass brain overlay.</span>
+<span class="sd">    - surface: str, type of fs-LR surface to use for visualization (e.g., &#39;midthickness&#39;, &#39;inflated&#39;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">my_brain_viewer</span> <span class="o">=</span> <span class="n">cbv</span><span class="o">.</span><span class="n">Cerebro_brain_viewer</span><span class="p">(</span><span class="n">offscreen</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">null_color</span><span class="o">=</span><span class="n">glass_color</span><span class="p">,</span> <span class="n">no_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>
+
+        <span class="n">surface_model</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">load_template_GIFTI_cortical_surface_models</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+
+        <span class="c1"># visualize the glass brain</span>
+        <span class="n">cifti_space</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_cifti_space</span><span class="p">(</span>
+            <span class="n">volumetric_structures</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Reformat edge radii</span>
+        <span class="k">if</span> <span class="n">edge_radii</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">adjacency_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="n">sparse_adjacency</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">(</span><span class="n">adjacency_matrix</span><span class="p">)</span>
+            <span class="n">edge_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sparse_adjacency</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">sparse_adjacency</span><span class="o">.</span><span class="n">col</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">edge_radii</span> <span class="o">=</span> <span class="n">edge_radii</span><span class="p">[</span><span class="n">edge_list</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">edge_list</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>  <span class="c1"># Get edge radii corresponding to the edges in the adjacency matrix</span>
+            <span class="n">edge_colors</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">((</span><span class="n">edge_radii</span> <span class="o">-</span> <span class="n">edge_radii</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">edge_radii</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">edge_radii</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># Use a colormap to get colors for the edges</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">edge_radii</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">edge_list</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">edge_colors</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">edge_colors</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>  <span class="c1"># Default edge color if radii are not provided</span>
+
+        <span class="c1"># Visualize the brain network</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span>
+            <span class="n">adjacency</span><span class="o">=</span><span class="n">adjacency_matrix</span><span class="p">,</span>  <span class="c1"># The adjacency matrix of the network</span>
+            <span class="n">node_coordinates</span><span class="o">=</span><span class="n">node_coords</span><span class="p">,</span>  <span class="c1"># The coordinates of the nodes in the network</span>
+            <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span>  <span class="c1"># The colors of the nodes in the network</span>
+            <span class="n">node_radii</span><span class="o">=</span><span class="n">node_radii</span><span class="p">,</span>  <span class="c1"># The radii of the nodes in the network</span>
+            <span class="n">edge_radii</span><span class="o">=</span><span class="n">edge_radii</span><span class="p">,</span>  <span class="c1"># The radii of the edges in the network</span>
+            <span class="n">edge_color</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">,</span>  <span class="c1"># The colors of the edges in the network</span>
+        <span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">camconf</span> <span class="o">=</span> <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">_view_to_camera_config</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+        <span class="c1"># camconf = my_brain_viewer.zoom_camera_to_content(camconf)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">change_view</span><span class="p">(</span><span class="o">**</span><span class="n">camconf</span><span class="p">)</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">offscreen_draw_to_matplotlib_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now that we have the functional connectivity matrix,</span>
+<span class="c1"># we need the coordinates of the nodes in the glasser atlas</span>
+<span class="n">node_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lrxyz</span><span class="p">[</span><span class="n">surface_mask</span><span class="p">][</span><span class="n">glasser_atlas</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">glasser_atlas_labels_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="c1"># Let&#39;s also extract node colors from the glasser atlas</span>
+<span class="n">glasser_label_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">glasser_atlas_labels_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">glasser_atlas_labels_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Now let&#39;s threshold the functional connectivity matrix to only keep the strongest connections</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.7</span>  <span class="c1"># threshold for the functional connectivity matrix</span>
+<span class="n">fc_matrix_thresholded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fc_matrix_reordered</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">fc_matrix_reordered</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># also remove self-connections</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">fc_matrix_thresholded</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Node sizes can be set based on the degree of each node</span>
+<span class="n">node_degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fc_matrix_thresholded</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">node_radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">node_degrees</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">node_degrees</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Scale node sizes between 1 and 5</span>
+<span class="n">node_radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">node_radii</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Make node radii along 3 dimensions (N x 3)</span>
+
+<span class="c1"># Edge radii can be set based on the strength of the connections</span>
+<span class="n">edge_radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fc_matrix_thresholded</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fc_matrix_thresholded</span><span class="p">)),</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Scale edge sizes between 0.2 and 1</span>
+
+<span class="c1"># Create a figure and axis for the plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># Suppress low-level output</span>
+<span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span> <span class="o">=</span> <span class="n">suppress_c_output</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Plot the glass brain with the subcortical atlas</span>
+    <span class="n">plot_glass_brain_and_network_with_cerebro</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="c1"># axis to render the brain view on</span>
+        <span class="n">adjacency_matrix</span><span class="o">=</span><span class="n">fc_matrix_thresholded</span><span class="p">,</span>  <span class="c1"># The adjacency matrix of the network</span>
+        <span class="n">node_coords</span><span class="o">=</span><span class="n">node_coords</span><span class="p">,</span>  <span class="c1"># The coordinates of the nodes in the network</span>
+        <span class="n">node_colors</span><span class="o">=</span><span class="n">glasser_label_colors</span><span class="p">,</span>  <span class="c1"># The colors of the nodes in the network</span>
+        <span class="n">node_radii</span><span class="o">=</span><span class="n">node_radii</span><span class="p">,</span>  <span class="c1"># The radii of the nodes in the network</span>
+        <span class="n">edge_radii</span><span class="o">=</span><span class="n">edge_radii</span><span class="p">,</span>  <span class="c1"># The radii of the edges in the network</span>
+        <span class="n">view</span><span class="o">=</span><span class="p">((</span><span class="mi">400</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="c1"># camera view configuration for the brain viewer (a view from the right side, slightly tilted towards the frontal superior part of the brain)</span>
+        <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;inflated&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Restore the original stdout and stderr</span>
+    <span class="n">restore_c_output</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">,</span> <span class="n">old_stderr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(206,) (206, 2) (206, 4)
+</pre></div>
+</div>
+<img alt="../../_images/741814354257542495041681c2babb460ddfb36043bd0b3980b61d1333f3f8e7.png" src="../../_images/741814354257542495041681c2babb460ddfb36043bd0b3980b61d1333f3f8e7.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>📑 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id10">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-glasser2013minimal" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Matthew F Glasser, Stamatios N Sotiropoulos, J Anthony Wilson, Timothy S Coalson, Bruce Fischl, Jesper L Andersson, Junqian Xu, Saad Jbabdi, Matthew Webster, Jonathan R Polimeni, and others. The minimal preprocessing pipelines for the human connectome project. <em>Neuroimage</em>, 80:105–124, 2013.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-van2012human" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>David C Van Essen, Kamil Ugurbil, Edward Auerbach, Deanna Barch, Timothy EJ Behrens, Richard Bucholz, Acer Chang, Liyong Chen, Maurizio Corbetta, Sandra W Curtiss, and others. The human connectome project: a data acquisition perspective. <em>Neuroimage</em>, 62(4):2222–2231, 2012.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-marcus2013human" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Daniel S Marcus, Michael P Harms, Abraham Z Snyder, Mark Jenkinson, J Anthony Wilson, Matthew F Glasser, Deanna M Barch, Kevin A Archie, Gregory C Burgess, Mohana Ramaratnam, and others. Human connectome project informatics: quality control, database services, and data visualization. <em>Neuroimage</em>, 80:202–219, 2013.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-glasser2016multi" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>Matthew F Glasser, Timothy S Coalson, Emma C Robinson, Carl D Hacker, John Harwell, Essa Yacoub, Kamil Ugurbil, Jesper Andersson, Christian F Beckmann, Mark Jenkinson, and others. A multi-modal parcellation of human cerebral cortex. <em>Nature</em>, 536(7615):171–178, 2016.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-zhang2018anatomically" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Fan Zhang, Ye Wu, Isaiah Norton, Laura Rigolo, Yogesh Rathi, Nikos Makris, and Lauren J O’Donnell. An anatomically curated fiber clustering white matter atlas for consistent white matter tract parcellation across the lifespan. <em>Neuroimage</em>, 179:429–447, 2018.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-mansour2021high" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id8">2</a>)</span>
+<p>Sina Mansour, Ye Tian, BT Thomas Yeo, Vanessa Cropley, Andrew Zalesky, and others. High-resolution connectomic fingerprints: mapping neural identity and behavior. <em>NeuroImage</em>, 229:117695, 2021.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-tian2020topographic" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>Ye Tian, Daniel S Margulies, Michael Breakspear, and Andrew Zalesky. Topographic organization of the human subcortex unveiled with functional connectivity gradients. <em>Nature neuroscience</em>, 23(11):1421–1432, 2020.</p>
+</aside>
+</aside>
+</div>
+<hr class="footnotes docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03b_visualization-tools.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">📙2️⃣ Visualization Tools Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../04/references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">📑 References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-preparations">Notebook Preparations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">Package Imports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">Directory Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducible-neuroimaging-visualizations">Reproducible NeuroImaging Visualizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-slice-rendering">Volume Slice Rendering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-based-visualizations">Surface-based Visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-to-surface-transformation">Volume-to-Surface Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tractography-visualization">Tractography Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brain-network-visualizations">Brain Network Visualizations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">📑 References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sina Mansour L.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

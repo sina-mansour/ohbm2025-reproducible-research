@@ -423,7 +423,7 @@ The neuroimaging community is continuously developing and curating exhaustive li
 ### 🛠️ Tools and Curated Resources
 
 - [**Python Graph Gallery**](https://python-graph-gallery.com/): A comprehensive collection of general-purpose visualization examples built with matplotlib, seaborn, plotly, and more.
-- [**DataCamp's Data Visualization Cheet Sheet**](https://www.datacamp.com/cheat-sheet/data-viz-cheat-sheet): A tutorial on most common general purpose visualizations and where to use them.
+- [**DataCamp's Data Visualization Cheat Sheet**](https://www.datacamp.com/cheat-sheet/data-viz-cheat-sheet): A tutorial on most common general purpose visualizations and where to use them.
 - [**BrainCode**](https://sidchop.shinyapps.io/braincode/) A code template generator for programmatic brain visualizations in R and Python. Great for learning syntax.
 - [**NeuroHackAcademy's Data Visualization in Python**](https://neurohackademy.org/course/data-visualization-in-python/) Lecture is also worth checking out.
 

@@ -1,8 +1,11 @@
 jupyter-book
-matplotlib
-numpy
 ghp-import
-scipy
-pandas
 nibabel
 scikit-learn
+matplotlib
+numpy
+pandas
+seaborn
+scipy
+colorcet
+Cerebro-Viewer

@@ -23,6 +23,8 @@ chapters:
         title: 1️⃣ Programmatic Visualizations
       - file: chapters/03/03b_visualization-tools
         title: 2️⃣ Visualization Tools Overview
+      - file: chapters/03/03c_visualization-examples
+        title: 3️⃣ Practical Visualization Examples
 
   - file: chapters/04/references
     title: 📑 References
