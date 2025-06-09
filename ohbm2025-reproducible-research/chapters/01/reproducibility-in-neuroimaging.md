@@ -21,6 +21,7 @@ This chapter aims to highlight the importance of reproducible research practices
 > [*Andrew Gelman*](https://statmodeling.stat.columbia.edu/2023/09/10/the-authors-of-research-papers-have-no-obligation-to-share-their-data-and-code-and-i-have-no-obligation-to-believe-anything-they-write/) (professor of statistics and political science at Columbia University)
 
 - **Wasted time** taken to re-implement procedures reported in previous works.
+- **Reduced impact** of research findings, as they cannot be easily verified or built upon.
 
 ## 🔀 Categorizing Reproducibility:
 
