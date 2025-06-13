@@ -42,6 +42,7 @@ html:
   # Sina added:
   extra_css:
     - custom.css
+  favicon: "assets/favicon.ico" 
   tags:
     hide_input: true
 
