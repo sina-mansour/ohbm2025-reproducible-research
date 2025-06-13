@@ -104,9 +104,19 @@ When in doubt, opt for descriptive variable names over short but ambiguous ones.
   - For loop counters, short names like `i` or `j` are fine.
   - For important variables or data structures, avoid cryptic one-letter names.
 
-```{tip}
+::::{tip}
 **Tab Completion:** Most modern text editors support tab completion, so long, descriptive names don’t slow you down!
-```
+
+:::{figure} /assets/tab_completion.webp
+---
+width: 100%
+name: tab-completion
+---
+Tab completion facilitates using long, descriptive names without slowing you down.
+
+:::
+
+::::
 
 ---
 

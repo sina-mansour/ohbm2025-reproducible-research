@@ -1,4 +1,4 @@
-# 📙2️⃣ Visualization Tools Overview
+# 📙2️⃣ Scientific Visualization Tools
 
 This chapter offers a broad overview of tools and libraries that support the programmatic creation of publication-quality figures. While I don’t consider myself an expert in scientific visualization, I’ve explored a variety of tools in my own research, and I hope this section provides a helpful starting point for others. Since my experience is primarily with Python, the tools discussed here are mostly Python-based. However, I’ve included links at the end of the chapter that point to similar resources for other programming environments.
 

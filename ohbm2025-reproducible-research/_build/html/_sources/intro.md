@@ -1,12 +1,26 @@
 # 📚 Reproducible Pipelines for <br>🧠 Neuroimaging Research
 <span style="font-size:1.2em; font-weight:300; color:gray;">From Code to Visualization</span>
 
-git**Author/Presenter**:  
+**Author/Presenter**:  
 [*Sina Mansour L.*](https://sina-mansour.github.io/), Ph.D.  
 National University of Singapore & The University of Melbourne
 
 ```{note}
 This Jupyter Book contains supporting material for the session titled *"From Code to Visualization: Reproducible Pipelines for Neuroimaging Research"* that was part of an educational course on ["Maximizing scientific efficiency through sustainability, reproducibility, and FAIRness"](https://ww6.aievolution.com/hbm2501/Events/viewEv?ev=2237), presented at the [2025 OHBM Annual Meeting in Brisbane](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=4229).
+
+```
+
+If you like to follow along the slides, you can find them [here](https://sina-mansour.github.io/ohbm2025-reproducible-research-slides/).
+
+```{figure} /assets/slides.png
+---
+width: 60%
+name: slides
+---
+The slides accompanying this book are [available online](https://sina-mansour.github.io/ohbm2025-reproducible-research-slides/):
+
+🔗 [![Slides Badge](https://img.shields.io/badge/Slides%20-%20teal?style=for-the-badge&logo=codementor&logoColor=yellow&logoSize=auto&label=Online)](https://sina-mansour.github.io/ohbm2025-reproducible-research-slides/) 🔗
+
 ```
 
 ## 💬 Synopsis

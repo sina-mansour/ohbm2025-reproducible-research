@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=f5cea23c" />
@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03/03a_programmatic-visualizations';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="📙2️⃣ Visualization Tools Overview" href="03b_visualization-tools.html" />
+    <link rel="next" title="📙2️⃣ Scientific Visualization Tools" href="03b_visualization-tools.html" />
     <link rel="prev" title="📙 Reproducible Scientific Visualizations" href="reproducible-visualizations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -424,12 +424,12 @@ document.write(`
 <p>In scientific research, figures often outlast the text. They are what readers remember, what journalists spotlight, and sometimes even what enters public imagination and pop culture.</p>
 <section id="the-impact-of-visualization">
 <h3>The Impact of Visualization<a class="headerlink" href="#the-impact-of-visualization" title="Link to this heading">#</a></h3>
-<p>A powerful example is the widely circulated brain connectivity figure from a psychedelic study by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (see <a class="reference internal" href="#petri"><span class="std std-numref">Fig. 7</span></a>). Beyond communicating the core findings, this figure captured the attention of numerous media outlets and became emblematic of the study itself.</p>
+<p>A powerful example is the widely circulated brain connectivity figure from a psychedelic study by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> (see <a class="reference internal" href="#petri"><span class="std std-numref">Fig. 9</span></a>). Beyond communicating the core findings, this figure captured the attention of numerous media outlets and became emblematic of the study itself.</p>
 <figure class="align-default" id="petri">
 <a class="reference internal image-reference" href="../../_images/petri.jpg"><img alt="../../_images/petri.jpg" src="../../_images/petri.jpg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Impact of Psilocybin on brain connectivity as illustrated by by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#petri" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Impact of Psilocybin on brain connectivity as illustrated by by Petri <em>et al.</em><a class="footnote-reference brackets" href="#footcite-petri2014homological" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#petri" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Its influence extended well beyond academia, appearing in TEDx talks (in <a class="reference external" href="https://youtu.be/8kfGaVAXeMY?si=kEiOfQ6reJ2--Spo&amp;amp;t=287">Oxford</a>, <a class="reference external" href="https://youtu.be/MZIaTaNR3gk?si=xJjZjdtVMyYzMiln&amp;amp;t=292">Warwick</a>, <a class="reference external" href="https://youtu.be/wmNHe0yS8RI?si=PHgPeuN4kHDcpVu7&amp;amp;t=538">Aarhus</a>, and <a class="reference external" href="https://youtu.be/FyAgx_tzh80?si=oeHtzKCjwpS4Vr9f&amp;amp;t=791">Varna</a>) and media stories including <a class="reference external" href="https://www.wired.com/2014/10/magic-mushroom-brain/?_sp=2d78efac-45d2-42e8-9a81-43392a7f4068.1748937952200">Wired</a>, <a class="reference external" href="https://www.vox.com/future-perfect/23972716/psychedelics-meaning-science-psychedelic-mushrooms-ketamine-psilocybin-mysticism">Vox</a>, <a class="reference external" href="https://mindmedicineaustralia.org.au/tag/magic-mushrooms/">Mind Medicine Australia</a>, <a class="reference external" href="https://alexdreyer.medium.com/the-mesh-age-be90fdc8cd82">Medium</a>, <a class="reference external" href="https://www.facebook.com/watch/?v=1772763436160905">7 news</a>, and <a class="reference external" href="https://www.businessinsider.com/how-brain-changes-on-mushrooms-2014-10">Business Insider</a>.</p>
@@ -440,9 +440,25 @@ document.write(`
 <section id="code-vs-gui-based-visualizations">
 <h2>🖥️ Code- vs. GUI-Based Visualizations<a class="headerlink" href="#code-vs-gui-based-visualizations" title="Link to this heading">#</a></h2>
 <p>There are two common paradigms for creating scientific visualizations:</p>
-<ul class="simple">
-<li><p><strong>GUI-based visualizations</strong>: Created through graphical user interfaces, often involving manual adjustments, screenshots, or exports. No coding is required.</p></li>
-<li><p><strong>Code-based visualizations</strong>: Built using scripts where the figure’s core elements are generated programmatically, with minimal manual adjustments (e.g. for annotations).</p></li>
+<ul>
+<li><p><strong>GUI-based visualizations</strong>: Created through graphical user interfaces, often involving manual adjustments, screenshots, or exports. No coding is required.</p>
+<figure class="align-default" id="guivis">
+<a class="reference internal image-reference" href="../../_images/gui-vis.webp"><img alt="../../_images/gui-vis.webp" src="../../_images/gui-vis.webp" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">GUI-based visualization requires no programming, is highly flexible, and is suitable for manual adjustments; however, the figure may not be intuitively reproducible.</span><a class="headerlink" href="#guivis" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><strong>Code-based visualizations</strong>: Built using scripts where the figure’s core elements are generated programmatically, with minimal manual adjustments (e.g. for annotations).</p>
+<figure class="align-default" id="codevis">
+<a class="reference internal image-reference" href="../../_images/code-vis.png"><img alt="../../_images/code-vis.png" src="../../_images/code-vis.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Code-based visualizations are generated by a reproducible script; while minor adjustments can be manually added to the figure, the main elements of the figure are programmatically generated.</span><a class="headerlink" href="#codevis" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
 </ul>
 <p>GUI-based workflows can be fast and intuitive, giving researchers the freedom to tweak visuals until they “look right.” However, this manual process makes it difficult to reproduce the figure, especially if the original settings are undocumented or the utilized tool is not mentioned.</p>
 <p>In contrast, <strong>code-based visualizations</strong> are inherently more reproducible. Since the figure is generated from a script, it can be re-run by anyone, on a different machine, with updated parameters and data. This makes code-based approaches a foundational tool for open, transparent, and reusable science.</p>
@@ -525,7 +541,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">📙2️⃣ Visualization Tools Overview</p>
+        <p class="prev-next-title">📙2️⃣ Scientific Visualization Tools</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

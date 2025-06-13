@@ -420,6 +420,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="practical-visualization-examples">
 <h1>📙3️⃣ Practical Visualization Examples<a class="headerlink" href="#practical-visualization-examples" title="Link to this heading">#</a></h1>
 <p>This notebook presents hands-on examples that build on the concepts introduced in earlier chapters. It is intended as a practical reference, offering reusable code snippets and templates that you can adapt for your own projects. Use this resource to deepen your understanding and to develop reproducible, high-quality visualizations.</p>
+<a target="_blank" href="https://colab.research.google.com/github/sina-mansour/ohbm2025-reproducible-research/blob/main/ohbm2025-reproducible-research/chapters/03/03c_visualization-examples.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a><br/>
 <section id="notebook-preparations">
 <h2>Notebook Preparations<a class="headerlink" href="#notebook-preparations" title="Link to this heading">#</a></h2>
 <p>Before diving into the visualization scripts, run the following (collapsed) setup cells to:</p>
@@ -436,13 +439,30 @@ document.write(`
 <h3>Google Colab<a class="headerlink" href="#google-colab" title="Link to this heading">#</a></h3>
 <p>This chapter is designed to be fully interactive and can be run directly in a Google Colab environment. This allows you to experiment with the provided scripts, modify parameters, and explore how different choices affect the resulting visualizations.</p>
 <p>To open this notebook in Colab, use the link below:</p>
-<p><strong>📎 Colab Badge Placeholder</strong></p>
+<a target="_blank" href="https://colab.research.google.com/github/sina-mansour/ohbm2025-reproducible-research/blob/main/ohbm2025-reproducible-research/chapters/03/03c_visualization-examples.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a><br/>
 <p>If you’re running this notebook in Colab, be sure to execute the cell below to install all required dependencies.</p>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Things to include here (probably just a link to the requirements.txt)</span>
-<span class="c1"># Numpy, Scipy, Matplotlib, Seaborn, Cerebro, Nibabel, Plotly?, Dipy?... list to be revisited when chapter is complete</span>
-<span class="c1"># This will need to be tested in google colab</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+# clone the repository
+git clone https://github.com/sina-mansour/ohbm2025-reproducible-research.git
+
+# install requirements
+cd &quot;ohbm2025-reproducible-research&quot;
+pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># change to notebook directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;ohbm2025-reproducible-research/ohbm2025-reproducible-research/chapters/03/&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +553,12 @@ document.write(`
 <h3>Volume Slice Rendering<a class="headerlink" href="#volume-slice-rendering" title="Link to this heading">#</a></h3>
 <p>In this section, we’ll demonstrate how to render volume slices using data from the Human Connectome Project’s <a class="reference external" href="https://www.humanconnectome.org/study/hcp-young-adult/article/s1200-group-average-data-release"><strong>S1200 Group Average Data Release</strong></a>. Specifically, we’ll visualize a set of axial slices from the group-average T1-weighted image, followed by an overlay of the T2-weighted image using an arbitrary intensity threshold.</p>
 <p>The images will be loaded using <strong>Nibabel</strong>, and slices will be visualized using <strong>Matplotlib</strong>. To promote reusability and reproducibility, we’ll structure the code as modular, well-documented functions.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">axial_volume_slice_render_nifti</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -608,6 +633,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,7 +645,12 @@ document.write(`
 <img alt="../../_images/7822aa0d7e347c977955f5a084ee0126e66fe5a47994cd2c37ca9940eb2d63a4.png" src="../../_images/7822aa0d7e347c977955f5a084ee0126e66fe5a47994cd2c37ca9940eb2d63a4.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">axial_volume_slice_render_nifti_with_overlay</span><span class="p">(</span><span class="n">img_ras</span><span class="p">,</span> <span class="n">overlay_ras</span><span class="p">,</span> <span class="n">slice_index</span><span class="p">,</span> <span class="n">overlay_threshold</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlay_cmap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">overlay_alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">overlay_clim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -729,6 +760,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,7 +781,12 @@ document.write(`
 <h3>Surface-based Visualizations<a class="headerlink" href="#surface-based-visualizations" title="Link to this heading">#</a></h3>
 <p>In the examples below, we will work with surface-based data from the Human Connectome Project’s <a class="reference external" href="https://www.humanconnectome.org/study/hcp-young-adult/article/s1200-group-average-data-release"><strong>S1200 Group Average Data Release</strong></a>, specifically using the fsLR template surface coordinates.</p>
 <p>We’ll visualize the average cortical curvature mapped onto the cortical surface to highlight anatomical landmarks and folding patterns.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brain visualizations with Cerebro</span>
 
@@ -851,7 +888,7 @@ document.write(`
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">my_brain_viewer</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_left_right_surface_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_left_right_surface_with_cerebro</span><span class="p">(</span><span class="n">dscalar_data</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c1"># Hide the parent axis</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
@@ -911,8 +948,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">suppress_c_output</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Suppress low-level C output by redirecting stdout and stderr to /dev/null.&quot;&quot;&quot;</span>
@@ -931,7 +974,7 @@ document.write(`
     <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">old_stdout</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">old_stderr</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot a dscalar file using Cerebro&#39;s brain viewer.</span>
 
@@ -949,7 +992,7 @@ document.write(`
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Plot the left and right surfaces with Cerebro</span>
         <span class="n">plot_left_right_surface_with_cerebro</span><span class="p">(</span>
-            <span class="n">dscalar_data</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="n">dscalar_data</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">clims</span><span class="o">=</span><span class="n">clims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="c1"># Restore the original stdout and stderr</span>
@@ -959,6 +1002,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -969,7 +1013,7 @@ document.write(`
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 
 <span class="c1"># Plot the dscalar file with Cerebro</span>
-<span class="n">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plot_dscalar_with_cerebro</span><span class="p">(</span><span class="n">dscalar_file</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="n">cc</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">fire</span><span class="p">,</span> <span class="n">show_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colorbar_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -983,7 +1027,12 @@ document.write(`
 <p>In this example, we demonstrate how to perform a volume-to-surface transformation using the <a class="reference external" href="https://github.com/yetianmed/subcortex">Melbourne Subcortical Atlas</a>, specifically from its Scale 1 parcellation (available from <a class="reference external" href="https://github.com/yetianmed/subcortex/tree/master/Group-Parcellation/3T/Subcortex-Only"><code class="docutils literal notranslate"><span class="pre">Tian_Subcortex_S1_3T.nii.gz</span></code></a>).</p>
 <p>We will generate and render a separate cortical surface visualization for each labeled region in the atlas.</p>
 <p>This transformation and rendering will be performed using tools from the <strong>Cerebro Brain Viewer</strong>, which provides convenient functionality for mapping volumetric data onto surface meshes.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a single view of a glass brain using Cerebro</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_atlas_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">atlas_file</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)):</span>
@@ -1057,6 +1106,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1085,7 +1135,12 @@ document.write(`
 <section id="tractography-visualization">
 <h3>Tractography Visualization<a class="headerlink" href="#tractography-visualization" title="Link to this heading">#</a></h3>
 <p>In this section, we will visualize tractography data from the <a class="reference external" href="https://github.com/SlicerDMRI/ORG-Atlases?tab=readme-ov-file">ORG fiber clustering atlas</a>. We will render a single fiber bundle using the Cerebro Brain Viewer, showcasing how to load and display streamline data effectively.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a single view of a glass brain using Cerebro</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_tractography_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">tract_file</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">maximum_streamlines</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
@@ -1142,6 +1197,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1172,7 +1228,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.95, &#39;Tractography Streamlines (SLF-III)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/3ee40fc17df29846149fd2d1b7f81a445d19d268210fe85ab496f42b53605249.png" src="../../_images/3ee40fc17df29846149fd2d1b7f81a445d19d268210fe85ab496f42b53605249.png" />
+<img alt="../../_images/495abdaabeed3ee0432302d8d5484bb4fc30d339a98bcfe1a989d95e3239410d.png" src="../../_images/495abdaabeed3ee0432302d8d5484bb4fc30d339a98bcfe1a989d95e3239410d.png" />
 </div>
 </div>
 </section>
@@ -1180,7 +1236,12 @@ document.write(`
 <h3>Brain Network Visualizations<a class="headerlink" href="#brain-network-visualizations" title="Link to this heading">#</a></h3>
 <p>This example uses functional human connectome data from Mansour <em>et al.</em><a class="footnote-reference brackets" href="#footcite-mansour2021high" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. We will visualize both a connectivity heatmap and a 3D brain network derived from an individual’s functional connectome, mapped onto the HCP MMP1 atlas (Glasser <em>et al.</em><a class="footnote-reference brackets" href="#footcite-glasser2016multi" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>).</p>
 <p>The connectivity heatmap will be created using <strong>Matplotlib</strong>, while the 3D brain network visualization will be generated with the <strong>Cerebro Brain Viewer</strong>.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the HCP MMP1 atlas</span>
 <span class="n">glasser_atlas_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">working_directory</span><span class="si">}</span><span class="s2">/data/Glasser_Atlas.32k_fs_LR.dlabel.nii&quot;</span>
@@ -1205,6 +1266,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1237,7 +1299,12 @@ document.write(`
 <img alt="../../_images/c92af824ad4e3703f18739d736e3b5d958cf68b4b0fb9e336d9ca25f0feb1e41.png" src="../../_images/c92af824ad4e3703f18739d736e3b5d958cf68b4b0fb9e336d9ca25f0feb1e41.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot a 3D brain network using Cerebro</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_glass_brain_and_network_with_cerebro</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">adjacency_matrix</span><span class="p">,</span> <span class="n">node_coords</span><span class="p">,</span> <span class="n">node_radii</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">node_colors</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span> <span class="n">edge_radii</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">=</span><span class="s1">&#39;midthickness&#39;</span><span class="p">,</span> <span class="n">glass_color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">maximum_streamlines</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
@@ -1294,6 +1361,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1346,7 +1414,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(206,) (206, 2) (206, 4)
 </pre></div>
 </div>
-<img alt="../../_images/741814354257542495041681c2babb460ddfb36043bd0b3980b61d1333f3f8e7.png" src="../../_images/741814354257542495041681c2babb460ddfb36043bd0b3980b61d1333f3f8e7.png" />
+<img alt="../../_images/7eb32aec841cc8c469138899cc2050db7f2e9f45553f4202a2c6172b9eaa34ba.png" src="../../_images/7eb32aec841cc8c469138899cc2050db7f2e9f45553f4202a2c6172b9eaa34ba.png" />
 </div>
 </div>
 </section>

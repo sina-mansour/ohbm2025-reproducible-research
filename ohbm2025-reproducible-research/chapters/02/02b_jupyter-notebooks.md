@@ -29,6 +29,7 @@ name: jupyter-kernels
 figclass: margin-caption
 ---
 Whatever programming language you use, there's a good chance it already has a Jupyter integration.
+
 ```
 
 ### Native GitHub Rendering
@@ -54,7 +55,7 @@ To keep your project organized and simple, consider a clear directory layout:
 ```{code-block} bash
 ──▶ project_directory/              # To be tracked by git
     ├── notebooks/                  # All Jupyter notebooks (.ipynb files)
-    │   ├── step_1/                 # Divide you analysis into different steps
+    │   ├── step_1/                 # Divide your analysis into different steps
     │   │   └── analysis_1.ipynb
     │   ├── step_2/
     │   │   └── analysis_2.ipynb
