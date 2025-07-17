@@ -6,6 +6,8 @@ A hands-on educational course from OHBM 2025 focused on building reproducible ne
 [*Sina Mansour L.*](https://sina-mansour.github.io/), Ph.D.  
 National University of Singapore & The University of Melbourne
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16006869.svg)](https://doi.org/10.5281/zenodo.16006869)
+
 ## Course materials
 
 The course materials are available as part of the [this Jupyter Book](https://sina-mansour.github.io/ohbm2025-reproducible-research/intro.html) on reproducible neuroimaging pipelines.

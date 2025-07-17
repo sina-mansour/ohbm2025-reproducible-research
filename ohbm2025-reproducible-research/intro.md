@@ -5,6 +5,8 @@
 [*Sina Mansour L.*](https://sina-mansour.github.io/), Ph.D.  
 National University of Singapore & The University of Melbourne
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16006869.svg)](https://doi.org/10.5281/zenodo.16006869)
+
 ```{note}
 This Jupyter Book contains supporting material for the session titled *"From Code to Visualization: Reproducible Pipelines for Neuroimaging Research"* that was part of an educational course on ["Maximizing scientific efficiency through sustainability, reproducibility, and FAIRness"](https://ww6.aievolution.com/hbm2501/Events/viewEv?ev=2237), presented at the [2025 OHBM Annual Meeting in Brisbane](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=4229).
 
